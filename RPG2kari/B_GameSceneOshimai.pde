@@ -9,7 +9,7 @@ class GameSceneOshimai extends GameScene {
   @Override void draw() {
     colorMode(HSB, 360, 100, 100);
     imageMode(CENTER);
-    
+
     background(0);
     image(gEarth, 0, 0, gEarth.width, gEarth.height);
 
@@ -17,7 +17,7 @@ class GameSceneOshimai extends GameScene {
     textSize(50);
     int titleX = 10;
     int titleY = (height / 5) * 3;
-    text("ブロック崩し", titleX, titleY);
+    text("RPG2（仮）", titleX, titleY);
     textSize(16);
     fill(120, 100, 100);
     titleX += 200;
