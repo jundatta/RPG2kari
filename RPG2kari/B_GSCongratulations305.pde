@@ -1,8 +1,8 @@
 // コングラチュレーション画面
 //
 // こちらがオリジナルです。
-// 【作者】さん
-// 【作品名】
+// 【作者】独楽回しeddyさん
+// 【作品名】RGBMorphingHexScenes
 // https://neort.io/art/c83b7lk3p9f3k6tgvhig
 //
 
