@@ -1,14 +1,14 @@
-# 【遊び方】2022/09/21
+# 【遊び方】2022/10/03
 
 https://www.youtube.com/watch?v=RBkOlsDzWCo
 
-##### １．配信でいじってるRPG2のダウンロード先です。
+##### １．配信でいじってるRPG2kariのダウンロード先です。
 
-https://xgf.nu/um0P
+https://xgf.nu/BLzb
 
 ##### ２．適当なところに展開してください。
 
-##### ３．RPG2\ProcessingCustom\【カスタマイしたProcessing4のIDE】にゃー
+##### ３．RPG2kari\ProcessingCustom\【カスタマイしたProcessing4のIDE】にゃー
 
 \build\windows\work\processing.exe
 をダブルクリックして起動してください。
@@ -33,10 +33,10 @@ https://xgf.nu/um0P
 （４）画面右下の「Install」ボタンを押してください。  
 （５）メイン画面に戻ってメニューの「Sketch/Import Library...」で表示されるメニューの一番下に「Ptmx」が表示されていればOKです。  
 
-##### ６．RPG2\RPG2.pdeをダブルクリックしてください。
+##### ６．RPG2kari\RPG2kari.pdeをダブルクリックしてください。
 
 ##### ７．表示された画面左上にある「右向き矢印アイコン」をクリックしてください。
 
-##### ８．「RPG2」が動き出せばOKです。
+##### ８．「RPG2kari」が動き出せばOKです。
 
 。。。お疲れさまでした♪
