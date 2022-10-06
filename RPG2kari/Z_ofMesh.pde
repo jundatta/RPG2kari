@@ -18,6 +18,9 @@ class ofMesh {
       this.vertices.add(v);
     }
   }
+  void addVertex(PVector v) {
+    this.vertices.add(v);
+  }
   int getNumVertices() {
     return vertices.size();
   }
@@ -58,6 +61,36 @@ class ofMesh {
       int idx = indices.get(i);
       color col = colors.get(idx);
       sh.setFill(i, col);
+    }
+    shape(sh);
+  }
+  // fill()の色を指定して描画する
+  void drawFill(color fill) {
+    PShape sh = createShape();
+    sh.setStroke(false);
+    sh.beginShape(TRIANGLES);
+    for (int i : indices) {
+      PVector v = vertices.get(i);
+      sh.vertex(v.x, v.y, v.z);
+    }
+    sh.endShape();
+    for (int i = 0; i < indices.size(); i++) {
+      sh.setFill(i, fill);
+    }
+    shape(sh);
+  }
+  // stroke()の色を指定して線を描画する
+  void drawLine(color stroke) {
+    PShape sh = createShape();
+    sh.setFill(false);
+    sh.beginShape(LINES);
+    for (int i : indices) {
+      PVector v = vertices.get(i);
+      sh.vertex(v.x, v.y, v.z);
+    }
+    sh.endShape();
+    for (int i = 0; i < indices.size(); i++) {
+      sh.setStroke(i, stroke);
     }
     shape(sh);
   }
