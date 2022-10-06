@@ -47,6 +47,21 @@ class ofMesh {
     }
     shape(sh);
   }
+  // stroke()の色を指定して線を描画する
+  void drawWireframe(color stroke) {
+    PShape sh = createShape();
+    sh.setFill(false);
+    sh.beginShape(LINES);
+    for (int i : indices) {
+      PVector v = vertices.get(i);
+      sh.vertex(v.x, v.y, v.z);
+    }
+    sh.endShape();
+    for (int i = 0; i < indices.size(); i++) {
+      sh.setStroke(i, stroke);
+    }
+    shape(sh);
+  }
   // デフォルトのOF_PRIMITIVE_TRIANGLESの解釈で描画する
   void draw() {
     PShape sh = createShape();
@@ -65,7 +80,7 @@ class ofMesh {
     shape(sh);
   }
   // fill()の色を指定して描画する
-  void drawFill(color fill) {
+  void draw(color fill) {
     PShape sh = createShape();
     sh.setStroke(false);
     sh.beginShape(TRIANGLES);
@@ -76,21 +91,6 @@ class ofMesh {
     sh.endShape();
     for (int i = 0; i < indices.size(); i++) {
       sh.setFill(i, fill);
-    }
-    shape(sh);
-  }
-  // stroke()の色を指定して線を描画する
-  void drawLine(color stroke) {
-    PShape sh = createShape();
-    sh.setFill(false);
-    sh.beginShape(LINES);
-    for (int i : indices) {
-      PVector v = vertices.get(i);
-      sh.vertex(v.x, v.y, v.z);
-    }
-    sh.endShape();
-    for (int i = 0; i < indices.size(); i++) {
-      sh.setStroke(i, stroke);
     }
     shape(sh);
   }

@@ -126,8 +126,8 @@ class GameSceneCongratulations318 extends GameSceneCongratulationsBase {
     rotateX(radians(270));
     rotateZ(radians(frameCount));
 
-    face.drawFill(color(0));
-    line.drawLine(color(255));
+    face.draw(color(0));
+    line.drawWireframe(color(255));
     pop();
 
     logoRightLower(#ff0000);
