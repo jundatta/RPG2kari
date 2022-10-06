@@ -1,10 +1,10 @@
-# 【遊び方】2022/10/03
+# 【遊び方】2022/10/07
 
 https://www.youtube.com/watch?v=RBkOlsDzWCo
 
 ##### １．配信でいじってるRPG2kariのダウンロード先です。
 
-https://xgf.nu/BLzb
+https://xgf.nu/HuUe
 
 ##### ２．適当なところに展開してください。
 
