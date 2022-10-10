@@ -1,5 +1,7 @@
-// オリジナルはこちらです。
-// https://www.shadertoy.com/view/XlsyWB
+// こちらがオリジナルです。
+// 【作者】Kaliさん
+// 【作品名】Hot Shower
+// https://www.shadertoy.com/view/4lf3Rj
 
 PShader sd;
 int startMillis;
@@ -7,11 +9,14 @@ int startMillis;
 void setup() {
   size(787, 442, P3D);
   noStroke();
+  textureWrap(REPEAT);
 
   sd = loadShader("Shadertoy.glsl");
   sd.set("iResolution", (float)width, (float)height, 0.0f);
   // 最初のミリ秒を取り込んでおく
   startMillis = millis();
+  sd.set("iChannel0", loadImage("iChannel0.png"));
+  sd.set("iChannel1", loadImage("iChannel1.png"));
 }
 
 void draw() {
