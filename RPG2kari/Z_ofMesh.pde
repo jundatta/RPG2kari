@@ -30,6 +30,9 @@ class ofMesh {
   void addIndex(int ix) {
     indices.append(ix);
   }
+  ArrayList<PVector> getVertices() {
+    return vertices;
+  }
   // 設定されたOF_PRIMITIVE_LINESの解釈で描画する
   void drawWireframe() {
     PShape sh = createShape();
@@ -57,9 +60,7 @@ class ofMesh {
       sh.vertex(v.x, v.y, v.z);
     }
     sh.endShape();
-    for (int i = 0; i < indices.size(); i++) {
-      sh.setStroke(i, stroke);
-    }
+    sh.setStroke(stroke);
     shape(sh);
   }
   // デフォルトのOF_PRIMITIVE_TRIANGLESの解釈で描画する
