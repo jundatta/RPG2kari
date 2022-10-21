@@ -27,11 +27,20 @@ class ofMesh {
   void addColor(color c) {
     colors.append(c);
   }
+  color getColor(int ix) {
+    return colors.get(ix);
+  }
+  void setColor(int ix, color c) {
+    colors.set(ix, c);
+  }
   void addIndex(int ix) {
     indices.append(ix);
   }
   ArrayList<PVector> getVertices() {
     return vertices;
+  }
+  PVector getVertex(int ix) {
+    return vertices.get(ix);
   }
   // 設定されたOF_PRIMITIVE_LINESの解釈で描画する
   void drawWireframe() {
