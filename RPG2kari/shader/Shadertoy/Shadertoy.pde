@@ -1,10 +1,11 @@
 // こちらがオリジナルです。
-// 【作者】Kaliさん
-// 【作品名】Hot Shower
-// https://www.shadertoy.com/view/4lf3Rj
+// 【作者】iqさん
+// 【作品名】Dolphin
+// https://www.shadertoy.com/view/4sS3zG
 
 PShader sd;
 int startMillis;
+int startCount;
 
 void setup() {
   size(787, 442, P3D);
@@ -15,8 +16,10 @@ void setup() {
   sd.set("iResolution", (float)width, (float)height, 0.0f);
   // 最初のミリ秒を取り込んでおく
   startMillis = millis();
+  startCount = frameCount;
   sd.set("iChannel0", loadImage("iChannel0.png"));
-  sd.set("iChannel1", loadImage("iChannel1.png"));
+  sd.set("iChannel2", loadImage("iChannel2.jpg"));
+  sd.set("iChannel3", loadImage("iChannel3.jpg"));
 }
 
 void draw() {
@@ -27,6 +30,7 @@ void draw() {
   //  background(0);
   // 最初からのミリ秒として渡したいのでstartMillisをmillis()から引く
   sd.set("iTime", (millis() - startMillis) / 1000.0f);
+  sd.set("iFrame", frameCount - startCount);
   // iMouseのz,wはそれぞれマウスドラッグ時のx,y座標になるが
   // シミュレートをあきらめる
   // このためz,wにはそれぞれ0.0fを固定で渡す
