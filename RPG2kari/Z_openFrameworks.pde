@@ -122,3 +122,6 @@ void ofRotateY(float degrees) {
 void ofRotateZ(float degrees) {
   rotateZ(radians(degrees));
 }
+float ofMap(float value, float inputMin, float inputMax, float outputMin, float outputMax) {
+  return map(value, inputMin, inputMax, outputMin, outputMax);
+}
