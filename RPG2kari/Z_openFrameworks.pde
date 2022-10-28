@@ -125,3 +125,15 @@ void ofRotateZ(float degrees) {
 float ofMap(float value, float inputMin, float inputMax, float outputMin, float outputMax) {
   return map(value, inputMin, inputMax, outputMin, outputMax);
 }
+void ofBackground(int brightness) {
+  background(brightness);
+}
+void ofSetLineWidth(float lineWidth) {
+  strokeWeight(lineWidth);
+}
+void ofSeedRandom(int val) {
+  randomSeed(val);
+}
+float ofRandom(float max) {
+  return random(max);
+}
