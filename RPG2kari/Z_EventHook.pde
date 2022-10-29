@@ -9,6 +9,9 @@ void draw() {
     gGameStack.mCleanup.cleanup();
     gGameStack.mCleanup = null;
 
+    // frameRateを60に再設定する
+    frameRate(60);
+
     // シェーダーをやめる
     resetShader();
     // パースを戻す
