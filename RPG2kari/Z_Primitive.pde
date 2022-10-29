@@ -229,21 +229,29 @@ public class Sphere {
         vdata[tindices[i][1]],
         vdata[tindices[i][2]], ite);
     }
+
+    ArrayList<PVector> vertices = new ArrayList();
+    for (PVector v : vertexList) {
+      PVector vv = PVector.mult(v, r);
+      vertices.add(vv);
+    }
+    vertexList = vertices;
   }
 
   PShape get() {
     var mesh = createShape();
-    mesh.setStroke(false);
 
     mesh.beginShape(TRIANGLES);
-    for (int i = 0; i < vertexList.size(); i++) {
-      PVector f1 = PVector.mult(vertexList.get(i), r);
-
-      mesh.vertex(f1.x, f1.y, f1.z);
+    for (PVector v : vertexList) {
+      mesh.vertex(v.x, v.y, v.z);
     }
     mesh.endShape();
 
     return mesh;
+  }
+
+  ArrayList<PVector> getVertices() {
+    return vertexList;
   }
 
   private void subdivide(PVector v1, PVector v2, PVector v3, int depth) {
