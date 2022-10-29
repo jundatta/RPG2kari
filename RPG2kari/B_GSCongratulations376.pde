@@ -1,25 +1,32 @@
 // コングラチュレーション画面
 //
 // こちらがオリジナルです。
-// 【作者】blackjeroさん
-// 【作品名】Orbital Flights
-// https://www.shadertoy.com/view/4lVGRy
+// 【作者】reinderさん
+// 【作品名】Misty Lake
+// https://www.shadertoy.com/view/MsB3WR
 //
 
-class GameSceneCongratulations350 extends GameSceneCongratulationsBase {
+class GameSceneCongratulations376 extends GameSceneCongratulationsBase {
   PShader sd;
   int startMillis;
+  int startCount;
 
   @Override void setup() {
     noStroke();
     textureWrap(REPEAT);
 
-    sd = loadShader("data/350/Shadertoy.glsl");
+    sd = loadShader("data/376/Shadertoy.glsl");
     sd.set("iResolution", (float)width, (float)height, 0.0f);
     // 最初のミリ秒を取り込んでおく
     startMillis = millis();
-    //sd.set("iChannel1", loadImage("data/350/iChannel1.jpg"));
-    sd.set("iChannel1", loadImage("data/350/iChannel1.png"));
+    startCount = frameCount;
+    // iChannel0。。。noise()の元ネタの画像。
+    // ⇒画像が荒いと霧が発生しない。細かい画像で霧が発生した（うまくいくようになった）
+    // ⇒画像の細かさを比べるためにShadertoyのホームページでも表示させてみるとよくわかる！！
+    //  fragColor = texture(iChannel0, q);
+    sd.set("iChannel0", loadImage("data/376/iChannel0.png"));
+    sd.set("iChannel1", loadImage("data/376/iChannel1.png"));
+    sd.set("iChannel2", loadImage("data/376/iChannel2.png"));
   }
   @Override void draw() {
     push();
@@ -30,10 +37,11 @@ class GameSceneCongratulations350 extends GameSceneCongratulationsBase {
     //  background(0);
     // 最初からのミリ秒として渡したいのでstartMillisをmillis()から引く
     sd.set("iTime", (millis() - startMillis) / 1000.0f);
+    //sd.set("iFrame", frameCount - startCount);
     // iMouseのz,wはそれぞれマウスドラッグ時のx,y座標になるが
     // シミュレートをあきらめる
     // このためz,wにはそれぞれ0.0fを固定で渡す
-    //sd.set("iMouse", (float)mouseX, (float)mouseY, 0.0f, 0.0f);
+    sd.set("iMouse", (float)mouseX, (float)mouseY, 0.0f, 0.0f);
     shader(sd);
     rect(0, 0, width, height);
     resetShader();

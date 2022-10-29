@@ -1,7 +1,7 @@
 // こちらがオリジナルです。
-// 【作者】iqさん
-// 【作品名】Dolphin
-// https://www.shadertoy.com/view/4sS3zG
+// 【作者】reinderさん
+// 【作品名】Misty Lake
+// https://www.shadertoy.com/view/MsB3WR
 
 PShader sd;
 int startMillis;
@@ -17,9 +17,13 @@ void setup() {
   // 最初のミリ秒を取り込んでおく
   startMillis = millis();
   startCount = frameCount;
+  // iChannel0。。。noise()の元ネタの画像。
+  // ⇒画像が荒いと霧が発生しない。細かい画像で霧が発生した（うまくいくようになった）
+  // ⇒画像の細かさを比べるためにShadertoyのホームページでも表示させてみるとよくわかる！！
+  //  fragColor = texture(iChannel0, q);
   sd.set("iChannel0", loadImage("iChannel0.png"));
-  sd.set("iChannel2", loadImage("iChannel2.jpg"));
-  sd.set("iChannel3", loadImage("iChannel3.jpg"));
+  sd.set("iChannel1", loadImage("iChannel1.png"));
+  sd.set("iChannel2", loadImage("iChannel2.png"));
 }
 
 void draw() {
@@ -30,7 +34,7 @@ void draw() {
   //  background(0);
   // 最初からのミリ秒として渡したいのでstartMillisをmillis()から引く
   sd.set("iTime", (millis() - startMillis) / 1000.0f);
-  sd.set("iFrame", frameCount - startCount);
+  //sd.set("iFrame", frameCount - startCount);
   // iMouseのz,wはそれぞれマウスドラッグ時のx,y座標になるが
   // シミュレートをあきらめる
   // このためz,wにはそれぞれ0.0fを固定で渡す

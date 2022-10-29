@@ -1344,6 +1344,8 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 //	fragColor.rgb = earthShader( view_ray, camera, lame_tweaks, exposure ) * fade;
 	vec3 col = earthShader( view_ray, camera, lame_tweaks, exposure ) * fade;
 	fragColor = vec4(col,1.0);
+// 画像の荒さをShadertoyのホームページでも表示させて比較検証する
+//    fragColor = texture(iChannel1, fragCoord.xy/iResolution.xy);
 	return;
 }
 
