@@ -18,8 +18,7 @@ class GameSceneCongratulations350 extends GameSceneCongratulationsBase {
     sd.set("iResolution", (float)width, (float)height, 0.0f);
     // 最初のミリ秒を取り込んでおく
     startMillis = millis();
-    //sd.set("iChannel1", loadImage("data/350/iChannel1.jpg"));
-    sd.set("iChannel1", loadImage("data/350/iChannel1.png"));
+    sd.set("iChannel1", loadImage("data/350/iChannel1.jpg"));
   }
   @Override void draw() {
     push();

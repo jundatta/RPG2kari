@@ -25,8 +25,8 @@ class GameSceneCongratulations376 extends GameSceneCongratulationsBase {
     // ⇒画像の細かさを比べるためにShadertoyのホームページでも表示させてみるとよくわかる！！
     //  fragColor = texture(iChannel0, q);
     sd.set("iChannel0", loadImage("data/376/iChannel0.png"));
-    sd.set("iChannel1", loadImage("data/376/iChannel1.png"));
-    sd.set("iChannel2", loadImage("data/376/iChannel2.png"));
+    sd.set("iChannel1", loadImage("data/376/iChannel1.jpg"));
+    sd.set("iChannel2", loadImage("data/376/iChannel2.jpg"));
   }
   @Override void draw() {
     push();
