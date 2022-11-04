@@ -24,9 +24,33 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+// コングラチュレーション画面側でnoLoop()を呼ばないこと
+// 「スクリーンショット」のボタンを押してmainApp.save(file)が
+// 呼ばれたときに（JavaVM？の都合が悪いみたいで？）落ちる
+//
+//#
+//# A fatal error has been detected by the Java Runtime Environment:
+//#
+//#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffcbf76988c, pid=4620, tid=8712
+//#
+//# JRE version:
+//OpenJDK Runtime Environment Temurin-17.0.4+8 (17.0.4+8) (build 17.0.4+8)
+//# Java VM:
+//OpenJDK 64-Bit Server VM Temurin-17.0.4+8 (17.0.4+8, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+//# Problematic frame:
+//# C  [vm3dgl64.dll+0x3b988c]
+//#
+//# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+//#
+//# If you would like to submit a bug report, please visit:
+//#   https://github.com/adoptium/adoptium-support/issues
+//# The crash happened outside the Java Virtual Machine in native code.
+//# See problematic frame for where to report the bug.
+//#
 
-// コングラビューワー
-public class Viewer8001 extends PApplet implements ListSelectionListener {
+
+  // コングラビューワー
+  public class Viewer8001 extends PApplet implements ListSelectionListener {
   private final PApplet mainApp;
   private final Viewer8001GameStack gameStack;
   private final DefaultListModel<Viewer8001Item> model = new DefaultListModel<>();
