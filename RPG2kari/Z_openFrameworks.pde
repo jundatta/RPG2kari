@@ -1,17 +1,23 @@
 class ofMesh {
   ArrayList<PVector> vertices;
   IntList colors;
+  ArrayList<PVector> texCoords;
   IntList indices;
+  PImage tex;
 
   ofMesh() {
     vertices = new ArrayList();
     colors = new IntList();
     indices = new IntList();
+    texCoords = new ArrayList();
+    tex = null;
   }
   void clear() {
     vertices.clear();
     colors.clear();
     indices.clear();
+    texCoords.clear();
+    tex = null;
   }
   void addVertices(ArrayList<PVector> vertices) {
     for (PVector v : vertices) {
@@ -46,6 +52,12 @@ class ofMesh {
   }
   PVector getVertex(int ix) {
     return vertices.get(ix);
+  }
+  void addTexCoord(PVector t) {
+    texCoords.add(t);
+  }
+  void setTexture(PImage tex) {
+    this.tex = tex;
   }
   // 設定されたOF_PRIMITIVE_LINESの解釈で描画する
   void drawWireframe() {
@@ -86,15 +98,27 @@ class ofMesh {
     PShape sh = createShape();
     sh.setStroke(false);
     sh.beginShape(TRIANGLES);
-    for (int i : indices) {
-      PVector v = vertices.get(i);
-      sh.vertex(v.x, v.y, v.z);
+    if (tex == null) {
+      for (int i : indices) {
+        PVector v = vertices.get(i);
+        sh.vertex(v.x, v.y, v.z);
+      }
+    } else {
+      sh.textureMode(NORMAL);
+      sh.texture(tex);
+      for (int i : indices) {
+        PVector v = vertices.get(i);
+        PVector uv = texCoords.get(i);
+        sh.vertex(v.x, v.y, v.z, uv.x, uv.y);
+      }
     }
     sh.endShape();
-    for (int i = 0; i < indices.size(); i++) {
-      int idx = indices.get(i);
-      color col = colors.get(idx);
-      sh.setFill(i, col);
+    if (0 < colors.size()) {
+      for (int i = 0; i < indices.size(); i++) {
+        int idx = indices.get(i);
+        color col = colors.get(idx);
+        sh.setFill(i, col);
+      }
     }
     shape(sh);
   }
