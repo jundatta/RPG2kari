@@ -180,3 +180,6 @@ void ofSeedRandom(int val) {
 float ofRandom(float max) {
   return random(max);
 }
+float ofRandom(float min, float max) {
+  return random(min, max);
+}
