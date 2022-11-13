@@ -34,7 +34,6 @@ class GameSceneCongratulations383 extends GameSceneCongratulationsBase {
 
     //--------------------------------------------------------------
     void update(final int frame_span, ArrayList<PVector> location_list, ArrayList<IntList> next_index_list, IntList destination_list) {
-
       if (ofGetFrameNum() % frame_span == 0) {
         var tmp_index = select_index;
         select_index = next_index;
@@ -63,11 +62,14 @@ class GameSceneCongratulations383 extends GameSceneCongratulationsBase {
         }
       }
 
+      var param = ofGetFrameNum() % frame_span;
       //auto distance = location_list[this->next_index] - location_list[this->select_index];
       //this->location = location_list[this->select_index] + distance / frame_span * param;
       PVector locN = location_list.get(next_index);
       PVector locS = location_list.get(select_index);
       var distance = PVector.sub(locN, locS);
+      distance.div(frame_span);
+      distance.mult(param);
       location = PVector.add(locS, distance);
     }
 
